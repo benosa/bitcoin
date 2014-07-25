@@ -118,7 +118,7 @@ public:
         vAlertPubKey = ParseHex("04fc9702847840aaf195de8442ebecedf5b095cdbb9bc716bda9110971b28a49e0ead8564ff0db22209e0374782c093bb899692d524e9d6a6956e7c5ecbcd68284");
         nDefaultPort = 5533;
         //bnProofOfWorkLimit = ~uint256(0) >> 32;
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
+        bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 1;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
@@ -148,13 +148,13 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1406309640;
         genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 661253;
+        genesis.nNonce   = 0;
 
         hashGenesisBlock = genesis.GetHash();
         /*
             After create - comment it!
         */
-        /*while (hashGenesisBlock > bnProofOfWorkLimit){
+        while (hashGenesisBlock > bnProofOfWorkLimit){
          if (++genesis.nNonce==0) break;
          hashGenesisBlock = genesis.GetHash();
         }
@@ -162,9 +162,9 @@ public:
         printf("MerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
         printf("POW: %x\n", bnProofOfWorkLimit.GetCompact());
         genesis.print();
-*/
-        //assert(hashGenesisBlock == uint256("0x00000f1c9aa88eaf0c28d2b49e4f5b54043ba915b50963ec1af5d2489d58ee1e"));
-        //assert(genesis.hashMerkleRoot == uint256("0x2fe5c71607b5f0f16b26da2be9fb9bdc8f24fb335ed2627570ad100ca81f9d6a"));
+
+        assert(hashGenesisBlock == uint256("0x00000f1c9aa88eaf0c28d2b49e4f5b54043ba915b50963ec1af5d2489d58ee1e"));
+        assert(genesis.hashMerkleRoot == uint256("0x2fe5c71607b5f0f16b26da2be9fb9bdc8f24fb335ed2627570ad100ca81f9d6a"));
 
         vSeeds.push_back(CDNSSeedData("yaltakino.com", "yaltakino.com"));
 
@@ -228,7 +228,7 @@ public:
         genesis.nTime = 1406309640;
         genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
-        //assert(hashGenesisBlock == uint256("0x00000f1c9aa88eaf0c28d2b49e4f5b54043ba915b50963ec1af5d2489d58ee1e"));
+        assert(hashGenesisBlock == uint256("0x00000f1c9aa88eaf0c28d2b49e4f5b54043ba915b50963ec1af5d2489d58ee1e"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
