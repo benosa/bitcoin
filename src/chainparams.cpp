@@ -155,7 +155,10 @@ public:
             After create - comment it!
         */
         while (hashGenesisBlock > bnProofOfWorkLimit){
-         if (++genesis.nNonce==0) break;
+         if (++genesis.nNonce==0) {
+            printf("nonce %08X: hash = %s (target = %s)\n", genesis.nNonce,  hashGenesisBlock.ToString().c_str());
+            break;
+        }
          hashGenesisBlock = genesis.GetHash();
         }
         printf("GenesisBlock: %s\n", hashGenesisBlock.ToString().c_str());
