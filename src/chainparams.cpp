@@ -153,7 +153,7 @@ public:
         /*
             After create - comment it!
         */
-        while (hashGenesisBlock > bnProofOfWorkLimit){
+        /*while (hashGenesisBlock > bnProofOfWorkLimit){
          if (++genesis.nNonce==0) break;
          hashGenesisBlock = genesis.GetHash();
         }
@@ -161,7 +161,7 @@ public:
         printf("MerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
         printf("POW: %x\n", bnProofOfWorkLimit.GetCompact());
         genesis.print();
-
+*/
         assert(hashGenesisBlock == uint256("0x00000f1c9aa88eaf0c28d2b49e4f5b54043ba915b50963ec1af5d2489d58ee1e"));
         assert(genesis.hashMerkleRoot == uint256("0x2fe5c71607b5f0f16b26da2be9fb9bdc8f24fb335ed2627570ad100ca81f9d6a"));
 
