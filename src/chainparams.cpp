@@ -146,7 +146,7 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime    = 1406289940;
-        genesis.nBits    = 0x1d00ffff;
+        genesis.nBits    = 0x1e0fffff;
         genesis.nNonce   = 0;
 
         hashGenesisBlock = genesis.GetHash();
@@ -161,9 +161,9 @@ public:
         printf("MerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
         printf("POW: %x\n", bnProofOfWorkLimit.GetCompact());
         genesis.print();
-        
-        assert(hashGenesisBlock == uint256("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d"));
-        assert(genesis.hashMerkleRoot == uint256("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d"));
+
+        assert(hashGenesisBlock == uint256(""));
+        assert(genesis.hashMerkleRoot == uint256(""));
 
         vSeeds.push_back(CDNSSeedData("yaltakino.com", "yaltakino.com"));
 
@@ -227,7 +227,7 @@ public:
         genesis.nTime = 1406289940;
         genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"));
+        assert(hashGenesisBlock == uint256("0x980c99fc7b1c740a1ab4f2737fce243ca42998821dac18772684796733297949"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -271,11 +271,11 @@ public:
         nTargetSpacing = 30;//10 * 60;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1406289940;
-        genesis.nBits = 0x207fffff;
+        genesis.nBits = 0x1e0fffff;
         genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 15544;
-        assert(hashGenesisBlock == uint256("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d"));
+        assert(hashGenesisBlock == uint256("0x980c99fc7b1c740a1ab4f2737fce243ca42998821dac18772684796733297949"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
 
