@@ -163,8 +163,8 @@ public:
         printf("POW: %x\n", bnProofOfWorkLimit.GetCompact());
         genesis.print();
 
-        assert(hashGenesisBlock == uint256("0x"));
-        assert(genesis.hashMerkleRoot == uint256("0x"));
+        //assert(hashGenesisBlock == uint256("0x"));
+        //assert(genesis.hashMerkleRoot == uint256("0x"));
 
         vSeeds.push_back(CDNSSeedData("yaltakino.com", "yaltakino.com"));
 
@@ -228,7 +228,7 @@ public:
         genesis.nTime = 1406309640;
         genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x"));
+        //assert(hashGenesisBlock == uint256("0x"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
