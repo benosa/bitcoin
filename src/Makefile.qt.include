@@ -1,79 +1,79 @@
-bin_PROGRAMS += qt/bitcoin-qt
-noinst_LIBRARIES += qt/libbitcoinqt.a
+bin_PROGRAMS += qt/thalercoin-qt
+noinst_LIBRARIES += qt/libthalercoinqt.a
 
-# bitcoin qt core #
+# thalercoin qt core #
 QT_TS = \
-  qt/locale/bitcoin_ach.ts \
-  qt/locale/bitcoin_af_ZA.ts \
-  qt/locale/bitcoin_ar.ts \
-  qt/locale/bitcoin_be_BY.ts \
-  qt/locale/bitcoin_bg.ts \
-  qt/locale/bitcoin_bs.ts \
-  qt/locale/bitcoin_ca_ES.ts \
-  qt/locale/bitcoin_ca.ts \
-  qt/locale/bitcoin_ca@valencia.ts \
-  qt/locale/bitcoin_cmn.ts \
-  qt/locale/bitcoin_cs.ts \
-  qt/locale/bitcoin_cy.ts \
-  qt/locale/bitcoin_da.ts \
-  qt/locale/bitcoin_de.ts \
-  qt/locale/bitcoin_el_GR.ts \
-  qt/locale/bitcoin_en.ts \
-  qt/locale/bitcoin_eo.ts \
-  qt/locale/bitcoin_es_CL.ts \
-  qt/locale/bitcoin_es_DO.ts \
-  qt/locale/bitcoin_es_MX.ts \
-  qt/locale/bitcoin_es.ts \
-  qt/locale/bitcoin_es_UY.ts \
-  qt/locale/bitcoin_et.ts \
-  qt/locale/bitcoin_eu_ES.ts \
-  qt/locale/bitcoin_fa_IR.ts \
-  qt/locale/bitcoin_fa.ts \
-  qt/locale/bitcoin_fi.ts \
-  qt/locale/bitcoin_fr_CA.ts \
-  qt/locale/bitcoin_fr.ts \
-  qt/locale/bitcoin_gl.ts \
-  qt/locale/bitcoin_gu_IN.ts \
-  qt/locale/bitcoin_he.ts \
-  qt/locale/bitcoin_hi_IN.ts \
-  qt/locale/bitcoin_hr.ts \
-  qt/locale/bitcoin_hu.ts \
-  qt/locale/bitcoin_id_ID.ts \
-  qt/locale/bitcoin_it.ts \
-  qt/locale/bitcoin_ja.ts \
-  qt/locale/bitcoin_ka.ts \
-  qt/locale/bitcoin_kk_KZ.ts \
-  qt/locale/bitcoin_ko_KR.ts \
-  qt/locale/bitcoin_ky.ts \
-  qt/locale/bitcoin_la.ts \
-  qt/locale/bitcoin_lt.ts \
-  qt/locale/bitcoin_lv_LV.ts \
-  qt/locale/bitcoin_mn.ts \
-  qt/locale/bitcoin_ms_MY.ts \
-  qt/locale/bitcoin_nb.ts \
-  qt/locale/bitcoin_nl.ts \
-  qt/locale/bitcoin_pam.ts \
-  qt/locale/bitcoin_pl.ts \
-  qt/locale/bitcoin_pt_BR.ts \
-  qt/locale/bitcoin_pt_PT.ts \
-  qt/locale/bitcoin_ro_RO.ts \
-  qt/locale/bitcoin_ru.ts \
-  qt/locale/bitcoin_sah.ts \
-  qt/locale/bitcoin_sk.ts \
-  qt/locale/bitcoin_sl_SI.ts \
-  qt/locale/bitcoin_sq.ts \
-  qt/locale/bitcoin_sr.ts \
-  qt/locale/bitcoin_sv.ts \
-  qt/locale/bitcoin_th_TH.ts \
-  qt/locale/bitcoin_tr.ts \
-  qt/locale/bitcoin_uk.ts \
-  qt/locale/bitcoin_ur_PK.ts \
-  qt/locale/bitcoin_uz@Cyrl.ts \
-  qt/locale/bitcoin_vi.ts \
-  qt/locale/bitcoin_vi_VN.ts \
-  qt/locale/bitcoin_zh_CN.ts \
-  qt/locale/bitcoin_zh_HK.ts \
-  qt/locale/bitcoin_zh_TW.ts
+  qt/locale/thalercoin_ach.ts \
+  qt/locale/thalercoin_af_ZA.ts \
+  qt/locale/thalercoin_ar.ts \
+  qt/locale/thalercoin_be_BY.ts \
+  qt/locale/thalercoin_bg.ts \
+  qt/locale/thalercoin_bs.ts \
+  qt/locale/thalercoin_ca_ES.ts \
+  qt/locale/thalercoin_ca.ts \
+  qt/locale/thalercoin_ca@valencia.ts \
+  qt/locale/thalercoin_cmn.ts \
+  qt/locale/thalercoin_cs.ts \
+  qt/locale/thalercoin_cy.ts \
+  qt/locale/thalercoin_da.ts \
+  qt/locale/thalercoin_de.ts \
+  qt/locale/thalercoin_el_GR.ts \
+  qt/locale/thalercoin_en.ts \
+  qt/locale/thalercoin_eo.ts \
+  qt/locale/thalercoin_es_CL.ts \
+  qt/locale/thalercoin_es_DO.ts \
+  qt/locale/thalercoin_es_MX.ts \
+  qt/locale/thalercoin_es.ts \
+  qt/locale/thalercoin_es_UY.ts \
+  qt/locale/thalercoin_et.ts \
+  qt/locale/thalercoin_eu_ES.ts \
+  qt/locale/thalercoin_fa_IR.ts \
+  qt/locale/thalercoin_fa.ts \
+  qt/locale/thalercoin_fi.ts \
+  qt/locale/thalercoin_fr_CA.ts \
+  qt/locale/thalercoin_fr.ts \
+  qt/locale/thalercoin_gl.ts \
+  qt/locale/thalercoin_gu_IN.ts \
+  qt/locale/thalercoin_he.ts \
+  qt/locale/thalercoin_hi_IN.ts \
+  qt/locale/thalercoin_hr.ts \
+  qt/locale/thalercoin_hu.ts \
+  qt/locale/thalercoin_id_ID.ts \
+  qt/locale/thalercoin_it.ts \
+  qt/locale/thalercoin_ja.ts \
+  qt/locale/thalercoin_ka.ts \
+  qt/locale/thalercoin_kk_KZ.ts \
+  qt/locale/thalercoin_ko_KR.ts \
+  qt/locale/thalercoin_ky.ts \
+  qt/locale/thalercoin_la.ts \
+  qt/locale/thalercoin_lt.ts \
+  qt/locale/thalercoin_lv_LV.ts \
+  qt/locale/thalercoin_mn.ts \
+  qt/locale/thalercoin_ms_MY.ts \
+  qt/locale/thalercoin_nb.ts \
+  qt/locale/thalercoin_nl.ts \
+  qt/locale/thalercoin_pam.ts \
+  qt/locale/thalercoin_pl.ts \
+  qt/locale/thalercoin_pt_BR.ts \
+  qt/locale/thalercoin_pt_PT.ts \
+  qt/locale/thalercoin_ro_RO.ts \
+  qt/locale/thalercoin_ru.ts \
+  qt/locale/thalercoin_sah.ts \
+  qt/locale/thalercoin_sk.ts \
+  qt/locale/thalercoin_sl_SI.ts \
+  qt/locale/thalercoin_sq.ts \
+  qt/locale/thalercoin_sr.ts \
+  qt/locale/thalercoin_sv.ts \
+  qt/locale/thalercoin_th_TH.ts \
+  qt/locale/thalercoin_tr.ts \
+  qt/locale/thalercoin_uk.ts \
+  qt/locale/thalercoin_ur_PK.ts \
+  qt/locale/thalercoin_uz@Cyrl.ts \
+  qt/locale/thalercoin_vi.ts \
+  qt/locale/thalercoin_vi_VN.ts \
+  qt/locale/thalercoin_zh_CN.ts \
+  qt/locale/thalercoin_zh_HK.ts \
+  qt/locale/thalercoin_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -97,10 +97,10 @@ QT_MOC_CPP = \
   qt/moc_addressbookpage.cpp \
   qt/moc_addresstablemodel.cpp \
   qt/moc_askpassphrasedialog.cpp \
-  qt/moc_bitcoinaddressvalidator.cpp \
-  qt/moc_bitcoinamountfield.cpp \
-  qt/moc_bitcoingui.cpp \
-  qt/moc_bitcoinunits.cpp \
+  qt/moc_thalercoinaddressvalidator.cpp \
+  qt/moc_thalercoinamountfield.cpp \
+  qt/moc_thalercoingui.cpp \
+  qt/moc_thalercoinunits.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
@@ -139,34 +139,34 @@ QT_MOC_CPP = \
   qt/moc_walletmodel.cpp \
   qt/moc_walletview.cpp
 
-BITCOIN_MM = \
+THALERCOIN_MM = \
   qt/macdockiconhandler.mm \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/bitcoin.moc \
-  qt/bitcoinamountfield.moc \
+  qt/thalercoin.moc \
+  qt/thalercoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_bitcoin.cpp
-QT_QRC = qt/bitcoin.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_bitcoin_locale.cpp
-QT_QRC_LOCALE = qt/bitcoin_locale.qrc
+QT_QRC_CPP = qt/qrc_thalercoin.cpp
+QT_QRC = qt/thalercoin.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_thalercoin_locale.cpp
+QT_QRC_LOCALE = qt/thalercoin_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
 PROTOBUF_PROTO = qt/paymentrequest.proto
 
-BITCOIN_QT_H = \
+THALERCOIN_QT_H = \
   qt/addressbookpage.h \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
-  qt/bitcoinaddressvalidator.h \
-  qt/bitcoinamountfield.h \
-  qt/bitcoingui.h \
-  qt/bitcoinunits.h \
+  qt/thalercoinaddressvalidator.h \
+  qt/thalercoinamountfield.h \
+  qt/thalercoingui.h \
+  qt/thalercoinunits.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
@@ -213,10 +213,10 @@ BITCOIN_QT_H = \
 RES_ICONS = \
   qt/res/icons/add.png \
   qt/res/icons/address-book.png \
-  qt/res/icons/bitcoin.ico \
-  qt/res/icons/bitcoin.png \
-  qt/res/icons/bitcoin_testnet.ico \
-  qt/res/icons/bitcoin_testnet.png \
+  qt/res/icons/thalercoin.ico \
+  qt/res/icons/thalercoin.png \
+  qt/res/icons/thalercoin_testnet.ico \
+  qt/res/icons/thalercoin_testnet.png \
   qt/res/icons/clock1.png \
   qt/res/icons/clock2.png \
   qt/res/icons/clock3.png \
@@ -254,15 +254,15 @@ RES_ICONS = \
   qt/res/icons/tx_input.png \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
-  qt/res/icons/unit_btc.png \
-  qt/res/icons/unit_mbtc.png \
-  qt/res/icons/unit_ubtc.png
+  qt/res/icons/unit_tlr.png \
+  qt/res/icons/unit_mtlr.png \
+  qt/res/icons/unit_utlr.png
 
-BITCOIN_QT_CPP = \
-  qt/bitcoinaddressvalidator.cpp \
-  qt/bitcoinamountfield.cpp \
-  qt/bitcoingui.cpp \
-  qt/bitcoinunits.cpp \
+THALERCOIN_QT_CPP = \
+  qt/thalercoinaddressvalidator.cpp \
+  qt/thalercoinamountfield.cpp \
+  qt/thalercoingui.cpp \
+  qt/thalercoinunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
   qt/guiutil.cpp \
@@ -281,7 +281,7 @@ BITCOIN_QT_CPP = \
   qt/winshutdownmonitor.cpp
 
 if ENABLE_WALLET
-BITCOIN_QT_CPP += \
+THALERCOIN_QT_CPP += \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -317,18 +317,18 @@ RES_IMAGES = \
 
 RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
 
-BITCOIN_RC = qt/res/bitcoin-qt-res.rc
+THALERCOIN_RC = qt/res/thalercoin-qt-res.rc
 
-BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+THALERCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms
 
-qt_libbitcoinqt_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+qt_libthalercoinqt_a_CPPFLAGS = $(THALERCOIN_INCLUDES) $(THALERCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-qt_libbitcoinqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
+qt_libthalercoinqt_a_SOURCES = $(THALERCOIN_QT_CPP) $(THALERCOIN_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
-nodist_qt_libbitcoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+nodist_qt_libthalercoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
 
 # forms/foo.h -> forms/ui_foo.h
@@ -337,67 +337,67 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libbitcoinqt_a_OBJECTS) $(qt_bitcoin_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libthalercoinqt_a_OBJECTS) $(qt_thalercoin_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# bitcoin-qt binary #
-qt_bitcoin_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+# thalercoin-qt binary #
+qt_thalercoin_qt_CPPFLAGS = $(THALERCOIN_INCLUDES) $(THALERCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-qt_bitcoin_qt_SOURCES = qt/bitcoin.cpp
+qt_thalercoin_qt_SOURCES = qt/thalercoin.cpp
 if TARGET_DARWIN
-  qt_bitcoin_qt_SOURCES += $(BITCOIN_MM)
+  qt_thalercoin_qt_SOURCES += $(THALERCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_bitcoin_qt_SOURCES += $(BITCOIN_RC)
+  qt_thalercoin_qt_SOURCES += $(THALERCOIN_RC)
 endif
-qt_bitcoin_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+qt_thalercoin_qt_LDADD = qt/libthalercoinqt.a $(LIBTHALERCOIN_SERVER)
 if ENABLE_WALLET
-qt_bitcoin_qt_LDADD += $(LIBBITCOIN_WALLET)
+qt_thalercoin_qt_LDADD += $(LIBTHALERCOIN_WALLET)
 endif
-qt_bitcoin_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_thalercoin_qt_LDADD += $(LIBTHALERCOIN_CLI) $(LIBTHALERCOIN_COMMON) $(LIBTHALERCOIN_UTIL) $(LIBTHALERCOIN_CRYPTO) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS)
 if USE_LIBSECP256K1
-  qt_bitcoin_qt_LDADD += secp256k1/libsecp256k1.la
+  qt_thalercoin_qt_LDADD += secp256k1/libsecp256k1.la
 endif
-qt_bitcoin_qt_LDFLAGS = $(AM_LDFLAGS) $(QT_LDFLAGS)
+qt_thalercoin_qt_LDFLAGS = $(AM_LDFLAGS) $(QT_LDFLAGS)
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 .SECONDARY: $(QT_QM)
 
-qt/bitcoinstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES)
+qt/thalercoinstrings.cpp: $(libthalercoin_server_a_SOURCES) $(libthalercoin_wallet_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/bitcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: qt/thalercoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(THALERCOIN_QT_CPP) $(THALERCOIN_QT_H) $(THALERCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/bitcoin_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/thalercoin_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoin_locale $(@D)/$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name thalercoin_locale $(@D)/$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoin $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name thalercoin $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
-CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
+CLEAN_QT = $(nodist_qt_libthalercoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-bitcoin_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_bitcoin_qt_OBJECTS) qt/bitcoin-qt$(EXEEXT) $(LIBBITCOINQT)
+thalercoin_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libthalercoinqt_a_OBJECTS) $(qt_thalercoin_qt_OBJECTS) qt/thalercoin-qt$(EXEEXT) $(LIBTHALERCOINQT)
 
-bitcoin_qt : qt/bitcoin-qt$(EXEEXT)
+thalercoin_qt : qt/thalercoin-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2013 The Bitcoin developers
+// Copyright (c) 2011-2013 The Thalercoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOINAMOUNTFIELD_H
-#define BITCOINAMOUNTFIELD_H
+#ifndef THALERCOINAMOUNTFIELD_H
+#define THALERCOINAMOUNTFIELD_H
 
 #include <QWidget>
 
@@ -13,16 +13,16 @@ QT_END_NAMESPACE
 
 class AmountSpinBox;
 
-/** Widget for entering bitcoin amounts.
+/** Widget for entering thalercoin amounts.
   */
-class BitcoinAmountField: public QWidget
+class ThalercoinAmountField: public QWidget
 {
     Q_OBJECT
 
     Q_PROPERTY(qint64 value READ value WRITE setValue NOTIFY valueChanged USER true)
 
 public:
-    explicit BitcoinAmountField(QWidget *parent = 0);
+    explicit ThalercoinAmountField(QWidget *parent = 0);
 
     qint64 value(bool *valid=0) const;
     void setValue(qint64 value);
@@ -65,4 +65,4 @@ private slots:
 
 };
 
-#endif // BITCOINAMOUNTFIELD_H
+#endif // THALERCOINAMOUNTFIELD_H

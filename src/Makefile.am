@@ -21,46 +21,46 @@ $(LIBLEVELDB) $(LIBMEMENV):
           OPT="$(CXXFLAGS) $(CPPFLAGS)"
 endif
 
-BITCOIN_CONFIG_INCLUDES=-I$(builddir)/config
-BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
+THALERCOIN_CONFIG_INCLUDES=-I$(builddir)/config
+THALERCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
 
 if USE_LIBSECP256K1
-BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
+THALERCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 endif
 
-LIBBITCOIN_SERVER=libbitcoin_server.a
-LIBBITCOIN_WALLET=libbitcoin_wallet.a
-LIBBITCOIN_COMMON=libbitcoin_common.a
-LIBBITCOIN_CLI=libbitcoin_cli.a
-LIBBITCOIN_UTIL=libbitcoin_util.a
-LIBBITCOIN_CRYPTO=crypto/libbitcoin_crypto.a
-LIBBITCOINQT=qt/libbitcoinqt.a
+LIBTHALERCOIN_SERVER=libthalercoin_server.a
+LIBTHALERCOIN_WALLET=libthalercoin_wallet.a
+LIBTHALERCOIN_COMMON=libthalercoin_common.a
+LIBTHALERCOIN_CLI=libthalercoin_cli.a
+LIBTHALERCOIN_UTIL=libthalercoin_util.a
+LIBTHALERCOIN_CRYPTO=crypto/libthalercoin_crypto.a
+LIBTHALERCOINQT=qt/libthalercoinqt.a
 
 noinst_LIBRARIES = \
-  libbitcoin_server.a \
-  libbitcoin_common.a \
-  libbitcoin_cli.a \
-  libbitcoin_util.a \
-  crypto/libbitcoin_crypto.a
+  libthalercoin_server.a \
+  libthalercoin_common.a \
+  libthalercoin_cli.a \
+  libthalercoin_util.a \
+  crypto/libthalercoin_crypto.a
 if ENABLE_WALLET
-BITCOIN_INCLUDES += $(BDB_CPPFLAGS)
-noinst_LIBRARIES += libbitcoin_wallet.a
+THALERCOIN_INCLUDES += $(BDB_CPPFLAGS)
+noinst_LIBRARIES += libthalercoin_wallet.a
 endif
 
 bin_PROGRAMS =
 TESTS =
 
-if BUILD_BITCOIND
-  bin_PROGRAMS += bitcoind
+if BUILD_THALERCOIND
+  bin_PROGRAMS += thalercoind
 endif
 
-if BUILD_BITCOIN_CLI
-  bin_PROGRAMS += bitcoin-cli
+if BUILD_THALERCOIN_CLI
+  bin_PROGRAMS += thalercoin-cli
 endif
 
 .PHONY: FORCE
-# bitcoin core #
-BITCOIN_CORE_H = \
+# thalercoin core #
+THALERCOIN_CORE_H = \
   addrman.h \
   alert.h \
   allocators.h \
@@ -126,11 +126,11 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libbitcoin_util_a-version.$(OBJEXT): obj/build.h
+libthalercoin_util_a-version.$(OBJEXT): obj/build.h
 
-# server: shared between bitcoind and bitcoin-qt
-libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_server_a_SOURCES = \
+# server: shared between thalercoind and thalercoin-qt
+libthalercoin_server_a_CPPFLAGS = $(THALERCOIN_INCLUDES)
+libthalercoin_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
   bloom.cpp \
@@ -152,23 +152,23 @@ libbitcoin_server_a_SOURCES = \
   txdb.cpp \
   txmempool.cpp \
   $(JSON_H) \
-  $(BITCOIN_CORE_H)
+  $(THALERCOIN_CORE_H)
 
-# wallet: shared between bitcoind and bitcoin-qt, but only linked
+# wallet: shared between thalercoind and thalercoin-qt, but only linked
 # when wallet enabled
-libbitcoin_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_wallet_a_SOURCES = \
+libthalercoin_wallet_a_CPPFLAGS = $(THALERCOIN_INCLUDES)
+libthalercoin_wallet_a_SOURCES = \
   db.cpp \
   crypter.cpp \
   rpcdump.cpp \
   rpcwallet.cpp \
   wallet.cpp \
   walletdb.cpp \
-  $(BITCOIN_CORE_H)
+  $(THALERCOIN_CORE_H)
 
 # crypto primitives library
-crypto_libbitcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES)
-crypto_libbitcoin_crypto_a_SOURCES = \
+crypto_libthalercoin_crypto_a_CPPFLAGS = $(THALERCOIN_CONFIG_INCLUDES)
+crypto_libthalercoin_crypto_a_SOURCES = \
   crypto/sha1.cpp \
   crypto/sha2.cpp \
   crypto/ripemd160.cpp \
@@ -177,9 +177,9 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha1.h \
   crypto/ripemd160.h
 
-# common: shared between bitcoind, and bitcoin-qt and non-server tools
-libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_common_a_SOURCES = \
+# common: shared between thalercoind, and thalercoin-qt and non-server tools
+libthalercoin_common_a_CPPFLAGS = $(THALERCOIN_INCLUDES)
+libthalercoin_common_a_SOURCES = \
   allocators.cpp \
   base58.cpp \
   chainparams.cpp \
@@ -191,13 +191,13 @@ libbitcoin_common_a_SOURCES = \
   netbase.cpp \
   protocol.cpp \
   script.cpp \
-  $(BITCOIN_CORE_H)
+  $(THALERCOIN_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libbitcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_util_a_SOURCES = \
+libthalercoin_util_a_CPPFLAGS = $(THALERCOIN_INCLUDES)
+libthalercoin_util_a_SOURCES = \
   compat/glibc_sanity.cpp \
   compat/glibcxx_sanity.cpp \
   chainparamsbase.cpp \
@@ -207,65 +207,65 @@ libbitcoin_util_a_SOURCES = \
   uint256.cpp \
   util.cpp \
   version.cpp \
-  $(BITCOIN_CORE_H)
+  $(THALERCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
-libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
+libthalercoin_util_a_SOURCES += compat/glibc_compat.cpp
+libthalercoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between bitcoin-cli and bitcoin-qt
-libbitcoin_cli_a_SOURCES = \
+# cli: shared between thalercoin-cli and thalercoin-qt
+libthalercoin_cli_a_SOURCES = \
   rpcclient.cpp \
-  $(BITCOIN_CORE_H)
+  $(THALERCOIN_CORE_H)
 
-nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libthalercoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# bitcoind binary #
-bitcoind_LDADD = \
-  $(LIBBITCOIN_SERVER) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO) \
+# thalercoind binary #
+thalercoind_LDADD = \
+  $(LIBTHALERCOIN_SERVER) \
+  $(LIBTHALERCOIN_COMMON) \
+  $(LIBTHALERCOIN_UTIL) \
+  $(LIBTHALERCOIN_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBMEMENV)
 
 if USE_LIBSECP256K1
-  bitcoind_LDADD += secp256k1/libsecp256k1.la
+  thalercoind_LDADD += secp256k1/libsecp256k1.la
 endif
 
 if ENABLE_WALLET
-bitcoind_LDADD += libbitcoin_wallet.a
+thalercoind_LDADD += libthalercoin_wallet.a
 endif
-bitcoind_SOURCES = bitcoind.cpp
+thalercoind_SOURCES = thalercoind.cpp
 #
 
 if TARGET_WINDOWS
-bitcoind_SOURCES += bitcoind-res.rc
+thalercoind_SOURCES += thalercoind-res.rc
 endif
 
-bitcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
-bitcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
+thalercoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
+thalercoind_CPPFLAGS = $(THALERCOIN_INCLUDES)
 
-# bitcoin-cli binary #
-bitcoin_cli_LDADD = \
-  $(LIBBITCOIN_CLI) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO) \
+# thalercoin-cli binary #
+thalercoin_cli_LDADD = \
+  $(LIBTHALERCOIN_CLI) \
+  $(LIBTHALERCOIN_COMMON) \
+  $(LIBTHALERCOIN_UTIL) \
+  $(LIBTHALERCOIN_CRYPTO) \
   $(BOOST_LIBS)
-bitcoin_cli_SOURCES = \
-  bitcoin-cli.cpp
+thalercoin_cli_SOURCES = \
+  thalercoin-cli.cpp
 
 if USE_LIBSECP256K1
-  bitcoin_cli_LDADD += secp256k1/libsecp256k1.la
+  thalercoin_cli_LDADD += secp256k1/libsecp256k1.la
 endif
-bitcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+thalercoin_cli_CPPFLAGS = $(THALERCOIN_INCLUDES)
 #
 
 if TARGET_WINDOWS
-bitcoin_cli_SOURCES += bitcoin-cli-res.rc
+thalercoin_cli_SOURCES += thalercoin-cli-res.rc
 endif
 
 CLEANFILES = leveldb/libleveldb.a leveldb/libmemenv.a *.gcda *.gcno

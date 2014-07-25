@@ -1,97 +1,97 @@
-// Copyright (c) 2011-2013 The Bitcoin developers
+// Copyright (c) 2011-2013 The Thalercoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "bitcoinunits.h"
+#include "thalercoinunits.h"
 
 #include "core.h"
 
 #include <QStringList>
 
-BitcoinUnits::BitcoinUnits(QObject *parent):
+ThalercoinUnits::ThalercoinUnits(QObject *parent):
         QAbstractListModel(parent),
         unitlist(availableUnits())
 {
 }
 
-QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
+QList<ThalercoinUnits::Unit> ThalercoinUnits::availableUnits()
 {
-    QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(BTC);
-    unitlist.append(mBTC);
-    unitlist.append(uBTC);
+    QList<ThalercoinUnits::Unit> unitlist;
+    unitlist.append(TLR);
+    unitlist.append(mTLR);
+    unitlist.append(uTLR);
     return unitlist;
 }
 
-bool BitcoinUnits::valid(int unit)
+bool ThalercoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case BTC:
-    case mBTC:
-    case uBTC:
+    case TLR:
+    case mTLR:
+    case uTLR:
         return true;
     default:
         return false;
     }
 }
 
-QString BitcoinUnits::id(int unit)
+QString ThalercoinUnits::id(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("btc");
-    case mBTC: return QString("mbtc");
-    case uBTC: return QString("ubtc");
+    case TLR: return QString("tlr");
+    case mTLR: return QString("mtlr");
+    case uTLR: return QString("utlr");
     default: return QString("???");
     }
 }
 
-QString BitcoinUnits::name(int unit)
+QString ThalercoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("BTC");
-    case mBTC: return QString("mBTC");
-    case uBTC: return QString::fromUtf8("μBTC");
+    case TLR: return QString("TLR");
+    case mTLR: return QString("mTLR");
+    case uTLR: return QString::fromUtf8("μTLR");
     default: return QString("???");
     }
 }
 
-QString BitcoinUnits::description(int unit)
+QString ThalercoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("Bitcoins");
-    case mBTC: return QString("Milli-Bitcoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uBTC: return QString("Micro-Bitcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case TLR: return QString("Thalercoins");
+    case mTLR: return QString("Milli-Thalercoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uTLR: return QString("Micro-Thalercoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
 
-qint64 BitcoinUnits::factor(int unit)
+qint64 ThalercoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case BTC:  return 100000000;
-    case mBTC: return 100000;
-    case uBTC: return 100;
+    case TLR:  return 100000000;
+    case mTLR: return 100000;
+    case uTLR: return 100;
     default:   return 100000000;
     }
 }
 
-int BitcoinUnits::decimals(int unit)
+int ThalercoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case BTC: return 8;
-    case mBTC: return 5;
-    case uBTC: return 2;
+    case TLR: return 8;
+    case mTLR: return 5;
+    case uTLR: return 2;
     default: return 0;
     }
 }
 
-QString BitcoinUnits::format(int unit, qint64 n, bool fPlus, SeparatorStyle separators)
+QString ThalercoinUnits::format(int unit, qint64 n, bool fPlus, SeparatorStyle separators)
 {
     // Note: not using straight sprintf here because we do NOT want
     // localized number formatting.
@@ -128,10 +128,10 @@ QString BitcoinUnits::format(int unit, qint64 n, bool fPlus, SeparatorStyle sepa
 }
 
 
-// TODO: Review all remaining calls to BitcoinUnits::formatWithUnit to
+// TODO: Review all remaining calls to ThalercoinUnits::formatWithUnit to
 // TODO: determine whether the output is used in a plain text context
 // TODO: or an HTML context (and replace with
-// TODO: BtcoinUnits::formatHtmlWithUnit in the latter case). Hopefully
+// TODO: TlroinUnits::formatHtmlWithUnit in the latter case). Hopefully
 // TODO: there aren't instances where the result could be used in
 // TODO: either context.
 
@@ -143,12 +143,12 @@ QString BitcoinUnits::format(int unit, qint64 n, bool fPlus, SeparatorStyle sepa
 // Please take care to use formatHtmlWithUnit instead, when
 // appropriate.
 
-QString BitcoinUnits::formatWithUnit(int unit, qint64 amount, bool plussign, SeparatorStyle separators)
+QString ThalercoinUnits::formatWithUnit(int unit, qint64 amount, bool plussign, SeparatorStyle separators)
 {
     return format(unit, amount, plussign, separators) + QString(" ") + name(unit);
 }
 
-QString BitcoinUnits::formatHtmlWithUnit(int unit, qint64 amount, bool plussign, SeparatorStyle separators)
+QString ThalercoinUnits::formatHtmlWithUnit(int unit, qint64 amount, bool plussign, SeparatorStyle separators)
 {
     QString str(formatWithUnit(unit, amount, plussign, separators));
     str.replace(QChar(THIN_SP_CP), QString(THIN_SP_HTML));
@@ -156,7 +156,7 @@ QString BitcoinUnits::formatHtmlWithUnit(int unit, qint64 amount, bool plussign,
 }
 
 
-bool BitcoinUnits::parse(int unit, const QString &value, qint64 *val_out)
+bool ThalercoinUnits::parse(int unit, const QString &value, qint64 *val_out)
 {
     if(!valid(unit) || value.isEmpty())
         return false; // Refuse to parse invalid unit or empty string
@@ -195,23 +195,23 @@ bool BitcoinUnits::parse(int unit, const QString &value, qint64 *val_out)
     return ok;
 }
 
-QString BitcoinUnits::getAmountColumnTitle(int unit)
+QString ThalercoinUnits::getAmountColumnTitle(int unit)
 {
     QString amountTitle = QObject::tr("Amount");
-    if (BitcoinUnits::valid(unit))
+    if (ThalercoinUnits::valid(unit))
     {
-        amountTitle += " ("+BitcoinUnits::name(unit) + ")";
+        amountTitle += " ("+ThalercoinUnits::name(unit) + ")";
     }
     return amountTitle;
 }
 
-int BitcoinUnits::rowCount(const QModelIndex &parent) const
+int ThalercoinUnits::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return unitlist.size();
 }
 
-QVariant BitcoinUnits::data(const QModelIndex &index, int role) const
+QVariant ThalercoinUnits::data(const QModelIndex &index, int role) const
 {
     int row = index.row();
     if(row >= 0 && row < unitlist.size())
@@ -231,7 +231,7 @@ QVariant BitcoinUnits::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-qint64 BitcoinUnits::maxMoney()
+qint64 ThalercoinUnits::maxMoney()
 {
     return MAX_MONEY;
 }

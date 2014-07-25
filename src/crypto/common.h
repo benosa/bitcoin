@@ -1,12 +1,12 @@
-// Copyright (c) 2014 The Bitcoin developers
+// Copyright (c) 2014 The Thalercoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CRYPTO_COMMON_H
-#define BITCOIN_CRYPTO_COMMON_H
+#ifndef THALERCOIN_CRYPTO_COMMON_H
+#define THALERCOIN_CRYPTO_COMMON_H
 
 #if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
+#include "thalercoin-config.h"
 #endif
 #include <stdint.h>
 #if defined(HAVE_ENDIAN_H)

@@ -1,16 +1,16 @@
-// Copyright (c) 2014 The Bitcoin developers
+// Copyright (c) 2014 The Thalercoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CHAIN_PARAMS_BASE_H
-#define BITCOIN_CHAIN_PARAMS_BASE_H
+#ifndef THALERCOIN_CHAIN_PARAMS_BASE_H
+#define THALERCOIN_CHAIN_PARAMS_BASE_H
 
 #include <vector>
 #include <string>
 
 /**
- * CBaseChainParams defines the base parameters (shared between bitcoin-cli and bitcoind)
- * of a given instance of the Bitcoin system.
+ * CBaseChainParams defines the base parameters (shared between thalercoin-cli and thalercoind)
+ * of a given instance of the Thalercoin system.
  */
 class CBaseChainParams
 {

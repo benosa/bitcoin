@@ -72,12 +72,12 @@ MSYS shell:
 	mkdir miniupnpc
 	cp *.h miniupnpc/
 
-Bitcoin
+Thalercoin
 -------
 MSYS shell:
 
-	cd \bitcoin
+	cd \thalercoin
 	sh autogen.sh
 	sh configure
 	mingw32-make
-	strip bitcoind.exe
+	strip thalercoind.exe

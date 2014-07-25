@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2013 The Bitcoin developers
+// Copyright (c) 2011-2013 The Thalercoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOINUNITS_H
-#define BITCOINUNITS_H
+#ifndef THALERCOINUNITS_H
+#define THALERCOINUNITS_H
 
 #include <QAbstractListModel>
 #include <QString>
@@ -39,24 +39,24 @@
 #define THIN_SP_UTF8 REAL_THIN_SP_UTF8
 #define THIN_SP_HTML HTML_HACK_SP
 
-/** Bitcoin unit definitions. Encapsulates parsing and formatting
+/** Thalercoin unit definitions. Encapsulates parsing and formatting
    and serves as list model for drop-down selection boxes.
 */
-class BitcoinUnits: public QAbstractListModel
+class ThalercoinUnits: public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit BitcoinUnits(QObject *parent);
+    explicit ThalercoinUnits(QObject *parent);
 
-    /** Bitcoin units.
-      @note Source: https://en.bitcoin.it/wiki/Units . Please add only sensible ones
+    /** Thalercoin units.
+      @note Source: https://en.thalercoin.it/wiki/Units . Please add only sensible ones
      */
     enum Unit
     {
-        BTC,
-        mBTC,
-        uBTC
+        TLR,
+        mTLR,
+        uTLR
     };
 
     enum SeparatorStyle
@@ -120,8 +120,8 @@ public:
     static qint64 maxMoney();
 
 private:
-    QList<BitcoinUnits::Unit> unitlist;
+    QList<ThalercoinUnits::Unit> unitlist;
 };
-typedef BitcoinUnits::Unit BitcoinUnit;
+typedef ThalercoinUnits::Unit ThalercoinUnit;
 
-#endif // BITCOINUNITS_H
+#endif // THALERCOINUNITS_H
