@@ -145,9 +145,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1406289940;
+        genesis.nTime    = 1406309640;
         genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 0;
+        genesis.nNonce   = 661253;
 
         hashGenesisBlock = genesis.GetHash();
         /*
@@ -162,8 +162,8 @@ public:
         printf("POW: %x\n", bnProofOfWorkLimit.GetCompact());
         genesis.print();
 
-        assert(hashGenesisBlock == uint256(""));
-        assert(genesis.hashMerkleRoot == uint256(""));
+        assert(hashGenesisBlock == uint256("0x00000f1c9aa88eaf0c28d2b49e4f5b54043ba915b50963ec1af5d2489d58ee1e"));
+        assert(genesis.hashMerkleRoot == uint256("0x2fe5c71607b5f0f16b26da2be9fb9bdc8f24fb335ed2627570ad100ca81f9d6a"));
 
         vSeeds.push_back(CDNSSeedData("yaltakino.com", "yaltakino.com"));
 
@@ -224,10 +224,10 @@ public:
         nTargetSpacing = 10 * 60;
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1406289940;
+        genesis.nTime = 1406309640;
         genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x980c99fc7b1c740a1ab4f2737fce243ca42998821dac18772684796733297949"));
+        assert(hashGenesisBlock == uint256("0x00000f1c9aa88eaf0c28d2b49e4f5b54043ba915b50963ec1af5d2489d58ee1e"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -270,12 +270,12 @@ public:
         nTargetTimespan = 60;//14 * 24 * 60 * 60; // two weeks
         nTargetSpacing = 30;//10 * 60;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1406289940;
+        genesis.nTime = 1406309640;
         genesis.nBits = 0x1e0fffff;
-        genesis.nNonce = 0;
+        genesis.nNonce = 661253;
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 15544;
-        assert(hashGenesisBlock == uint256("0x980c99fc7b1c740a1ab4f2737fce243ca42998821dac18772684796733297949"));
+        assert(hashGenesisBlock == uint256("0x00000f1c9aa88eaf0c28d2b49e4f5b54043ba915b50963ec1af5d2489d58ee1e"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
 
