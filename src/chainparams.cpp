@@ -157,8 +157,13 @@ public:
          if (++genesis.nNonce==0) break;
          hashGenesisBlock = genesis.GetHash();
         }
-        assert(hashGenesisBlock == uint256("0x"));
-        assert(genesis.hashMerkleRoot == uint256("0x"));
+        printf("GenesisBlock: %s\n", hashGenesisBlock.ToString().c_str());
+        printf("MerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        printf("POW: %x\n", bnProofOfWorkLimit.GetCompact());
+        genesis.print();
+        
+        assert(hashGenesisBlock == uint256("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d"));
+        assert(genesis.hashMerkleRoot == uint256("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d"));
 
         vSeeds.push_back(CDNSSeedData("yaltakino.com", "yaltakino.com"));
 
@@ -270,7 +275,7 @@ public:
         genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 15544;
-        assert(hashGenesisBlock == uint256("0x"));
+        assert(hashGenesisBlock == uint256("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
 
