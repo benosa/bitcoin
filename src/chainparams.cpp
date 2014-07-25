@@ -18,7 +18,7 @@ using namespace boost::assign;
 // Main network
 //
 
-unsigned int pnSeed[] =
+/*unsigned int pnSeed[] =
 {
     0x7e6a692e, 0x7d04d1a2, 0x6c0c17d9, 0xdb330ab9, 0xc649c7c6, 0x7895484d, 0x047109b0, 0xb90ca5bc,
     0xd130805f, 0xbd074ea6, 0x578ff1c0, 0x286e09b0, 0xd4dcaf42, 0x529b6bb8, 0x635cc6c0, 0xedde892e,
@@ -96,6 +96,12 @@ unsigned int pnSeed[] =
     0x3ca56ac1, 0x54ee4546, 0x38a8175e, 0xa3c21155, 0x2f01576d, 0x5d7ade50, 0xa003ae48, 0x2bc1d31f,
     0x13f5094c, 0x7ab32648, 0x542e9fd5, 0x53136bc1, 0x7fdf51c0, 0x802197b2, 0xa2d2cc5b, 0x6b5f4bc0,
 };
+*/
+
+unsigned int pnSeed[] =
+{
+    0x12345678
+};
 
 class CMainParams : public CChainParams {
 public:
@@ -105,20 +111,20 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xf9;
-        pchMessageStart[1] = 0xbe;
-        pchMessageStart[2] = 0xb4;
-        pchMessageStart[3] = 0xd9;
+        pchMessageStart[0] = 0x04;
+        pchMessageStart[1] = 0x04;
+        pchMessageStart[2] = 0xb5;
+        pchMessageStart[3] = 0x04;
         vAlertPubKey = ParseHex("04fc9702847840aaf195de8442ebecedf5b095cdbb9bc716bda9110971b28a49e0ead8564ff0db22209e0374782c093bb899692d524e9d6a6956e7c5ecbcd68284");
-        nDefaultPort = 8333;
+        nDefaultPort = 5533;
         bnProofOfWorkLimit = ~uint256(0) >> 32;
-        nSubsidyHalvingInterval = 210000;
+        nSubsidyHalvingInterval = 1;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-        nTargetSpacing = 10 * 60;
+        nTargetTimespan = 60;//14 * 24 * 60 * 60; // two weeks
+        nTargetSpacing = 30;//10 * 60;
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
@@ -128,7 +134,7 @@ public:
         //     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
         //     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
         //   vMerkleTree: 4a5e1e
-        const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
+        const char* pszTimestamp = "Thale Coin its my coin.";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -139,21 +145,23 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1231006505;
+        genesis.nTime    = 1406289940;
         genesis.nBits    = 0x1d00ffff;
-        genesis.nNonce   = 2083236893;
+        genesis.nNonce   = 0;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"));
-        assert(genesis.hashMerkleRoot == uint256("0x4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"));
+        /*
+            After create - comment it!
+        */
+        while (hashGenesisBlock > bnProofOfWorkLimit){
+         if (++genesis.nNonce==0) break;
+         hashGenesisBlock = genesis.GetHash();
+        }
+        assert(hashGenesisBlock == uint256("0x"));
+        assert(genesis.hashMerkleRoot == uint256("0x"));
 
-        vSeeds.push_back(CDNSSeedData("thalercoin.sipa.be", "seed.thalercoin.sipa.be"));
-        vSeeds.push_back(CDNSSeedData("bluematt.me", "dnsseed.bluematt.me"));
-        vSeeds.push_back(CDNSSeedData("dashjr.org", "dnsseed.thalercoin.dashjr.org"));
-        vSeeds.push_back(CDNSSeedData("thalercoinstats.com", "seed.thalercoinstats.com"));
-        vSeeds.push_back(CDNSSeedData("bitnodes.io", "seed.bitnodes.io"));
-        vSeeds.push_back(CDNSSeedData("open-nodes.org", "seeds.thalercoin.open-nodes.org"));
-        vSeeds.push_back(CDNSSeedData("xf2.org", "bitseed.xf2.org"));
+        vSeeds.push_back(CDNSSeedData("yaltakino.com", "yaltakino.com"));
+
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(0);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
@@ -197,12 +205,12 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0x0b;
-        pchMessageStart[1] = 0x11;
-        pchMessageStart[2] = 0x09;
-        pchMessageStart[3] = 0x07;
+        pchMessageStart[0] = 0x04;
+        pchMessageStart[1] = 0x04;
+        pchMessageStart[2] = 0xb5;
+        pchMessageStart[3] = 0x04;
         vAlertPubKey = ParseHex("04302390343f91cc401d56d68b123028bf52e5fca1939df127f63c6467cdf9c8e2c14b61104cf817d0b780da337893ecc4aaff1309e536162dabbdb45200ca2b0a");
-        nDefaultPort = 18333;
+        nDefaultPort = 15533;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
@@ -211,16 +219,15 @@ public:
         nTargetSpacing = 10 * 60;
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1296688602;
-        genesis.nNonce = 414098458;
+        genesis.nTime = 1406289940;
+        genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("alexykot.me", "testnet-seed.alexykot.me"));
-        vSeeds.push_back(CDNSSeedData("thalercoin.petertodd.org", "testnet-seed.thalercoin.petertodd.org"));
-        vSeeds.push_back(CDNSSeedData("bluematt.me", "testnet-seed.bluematt.me"));
+        vSeeds.push_back(CDNSSeedData("yaltakino.com", "yaltakino.com"));
+
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(111);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(196);
@@ -246,24 +253,24 @@ public:
     CRegTestParams() {
         networkID = CBaseChainParams::REGTEST;
         strNetworkID = "regtest";
-        pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xbf;
+        pchMessageStart[0] = 0x04;
+        pchMessageStart[1] = 0x04;
         pchMessageStart[2] = 0xb5;
-        pchMessageStart[3] = 0xda;
-        nSubsidyHalvingInterval = 150;
+        pchMessageStart[3] = 0x04;
+        nSubsidyHalvingInterval = 1;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-        nTargetSpacing = 10 * 60;
+        nTargetTimespan = 60;//14 * 24 * 60 * 60; // two weeks
+        nTargetSpacing = 30;//10 * 60;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1296688602;
+        genesis.nTime = 1406289940;
         genesis.nBits = 0x207fffff;
-        genesis.nNonce = 2;
+        genesis.nNonce = 0;
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 18444;
-        assert(hashGenesisBlock == uint256("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
+        nDefaultPort = 15544;
+        assert(hashGenesisBlock == uint256("0x"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
 
